@@ -1,0 +1,15 @@
+.col-2 {
+  text-align: center;
+  font-size: 12px;
+  padding: 0px;
+}
+
+.Forecast {
+  color: #bcb7b7;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+}
+
+img {
+  max-width: 80%;
+}

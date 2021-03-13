@@ -1,0 +1,34 @@
+.Temperature {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.current-temperature {
+  font-size: 56px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.celcius-link {
+  position: relative;
+  top: -30px;
+  cursor: default;
+}
+.farenheit-link {
+  position: relative;
+  top: -30px;
+  cursor: default;
+}
+
+.col-sm {
+  text-align: center;
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: none;
+}
+.active {
+  position: relative;
+  font-weight: bold;
+  top: -30px;
+}
