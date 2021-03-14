@@ -15,6 +15,17 @@ export default function App() {
       <City />
       <Temperature />
       <Forecast />
+      <footer>
+        {" "}
+        <a href="https://github.com/leeenah/weather-react" target="_blank">
+          {" "}
+          Open source code{" "}
+        </a>
+        <span>
+          {" "}
+          <strong>by Lena Zhang</strong>
+        </span>{" "}
+      </footer>{" "}
     </div>
   );
 }

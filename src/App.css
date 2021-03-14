@@ -32,6 +32,10 @@ img {
 footer {
   font-size: 9px;
   position: relative;
-  bottom: -40px;
-  left: -20px;
+  bottom: -45px;
+  left: -10px;
+}
+
+footer span {
+  font-size: 9px;
 }
