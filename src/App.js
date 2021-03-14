@@ -14,10 +14,14 @@ export default function App() {
       <Search />
       <City />
       <Temperature />
-      <Forecast />
+      <Forecast color="black" size={40} />
       <footer>
         {" "}
-        <a href="https://github.com/leeenah/weather-react" target="_blank">
+        <a
+          href="https://github.com/leeenah/weather-react"
+          target="_blank"
+          rel="noreferrer"
+        >
           {" "}
           Open source code{" "}
         </a>

@@ -1,16 +1,18 @@
 import React from "react";
+import ReactAnimatedWeather from "react-animated-weather";
 
 import "./Forecast.css";
 
-export default function Forecast() {
+export default function Forecast(props) {
   return (
     <div className="Forecast">
       <div className="row">
         <div className="col-2">
           <div>08:00</div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
+          <ReactAnimatedWeather
+            icon="CLEAR_DAY"
+            color={props.color}
+            size={props.size}
           />
           <div>
             <span>
@@ -23,9 +25,10 @@ export default function Forecast() {
         </div>
         <div className="col-2">
           <div>08:00</div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
+          <ReactAnimatedWeather
+            icon="PARTLY_CLOUDY_DAY"
+            color={props.color}
+            size={props.size}
           />
           <div>
             <span>
@@ -38,9 +41,10 @@ export default function Forecast() {
         </div>
         <div className="col-2">
           <div>08:00</div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
+          <ReactAnimatedWeather
+            icon="PARTLY_CLOUDY_DAY"
+            color={props.color}
+            size={props.size}
           />
           <div>
             <span>
@@ -53,9 +57,10 @@ export default function Forecast() {
         </div>
         <div className="col-2">
           <div>08:00</div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
+          <ReactAnimatedWeather
+            icon="PARTLY_CLOUDY_NIGHT"
+            color={props.color}
+            size={props.size}
           />
           <div>
             <span>
@@ -68,9 +73,10 @@ export default function Forecast() {
         </div>
         <div className="col-2">
           <div>08:00</div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
+          <ReactAnimatedWeather
+            icon="PARTLY_CLOUDY_NIGHT"
+            color={props.color}
+            size={props.size}
           />
           <div>
             <span>
@@ -83,9 +89,10 @@ export default function Forecast() {
         </div>
         <div className="col-2">
           <div>08:00</div>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather-icon"
+          <ReactAnimatedWeather
+            icon="CLEAR_DAY"
+            color={props.color}
+            size={props.size}
           />
           <div>
             <span>
