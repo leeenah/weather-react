@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Date from "./Date";
 import "./Temperature.css";
 
 export default function Temperature(props) {
@@ -7,9 +8,10 @@ export default function Temperature(props) {
   const [weatherData, setWeatherData] = useState(null);
 
   function getResponse(response) {
+    console.log(response);
     setWeatherData({
       city: response.data.name,
-      date: "Wednesday 10:00",
+      date: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       feelsLike: response.data.main.feels_like,
       humidity: response.data.main.humidity,
@@ -22,7 +24,10 @@ export default function Temperature(props) {
     return (
       <div className="Temperature">
         <h1> {weatherData.city} </h1>
-        <p className="currentDay"> {weatherData.date}</p>
+        <p className="currentDay">
+          {" "}
+          <Date date={weatherData.date} />
+        </p>
         <p className="currently">currently</p>
         <span className="current-temperature">
           {" "}
