@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Date from "./Date";
+import CurrentTime from "./CurrentTime";
 import "./Temperature.css";
 
 export default function Temperature(props) {
@@ -25,7 +25,7 @@ export default function Temperature(props) {
         <h1> {weatherData.city} </h1>
         <p className="currentDay">
           {" "}
-          <Date date={weatherData.date} />
+          <CurrentTime date={weatherData.date} />
         </p>
         <p className="currently">currently</p>
         <span className="current-temperature">
