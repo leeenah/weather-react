@@ -8,7 +8,6 @@ export default function Temperature(props) {
   const [weatherData, setWeatherData] = useState(null);
 
   function getResponse(response) {
-    console.log(response);
     setWeatherData({
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
