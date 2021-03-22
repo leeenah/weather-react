@@ -1,10 +1,24 @@
 import React, { useState } from "react";
+import axios from "axios";
+
 import "./Search.css";
 
 export default function Search(props) {
   const [query, setQuery] = useState(null);
 
-  function submitSearch(event, searchWeather) {
+  function searchWeather(city) {
+    // Call API from here and pass it city
+    let apiKey = "fc744c97c485c14d19b2746947729882";
+    let unit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(parseResponse);
+  }
+
+  function parseResponse(response) {
+    props.updateSearchedWeather(response);
+  }
+
+  function submitSearch(event) {
     event.preventDefault();
     searchWeather(query);
   }
@@ -16,11 +30,7 @@ export default function Search(props) {
 
   return (
     <div className="Search">
-      <form
-        onSubmit={(event) => {
-          submitSearch(event, props.searchWeather);
-        }}
-      >
+      <form onSubmit={submitSearch}>
         <input
           className="searchCity"
           type="text"

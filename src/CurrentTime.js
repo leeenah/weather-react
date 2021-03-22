@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function CurrentTime(props) {
-  console.log(props.date);
+  console.log(props.current);
   let days = [
     "Sunday",
     "Monday",
@@ -12,9 +12,9 @@ export default function CurrentTime(props) {
     "Saturday",
   ];
 
-  let day = days[props.date.getDay()];
-  let hours = props.date.getHours();
-  let minutes = props.date.getMinutes();
+  let day = days[props.current.getDay()];
+  let hours = props.current.getHours();
+  let minutes = props.current.getMinutes();
 
   if (hours < 10) {
     hours = `0${hours}`;

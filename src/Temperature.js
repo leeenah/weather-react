@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CurrentTime from "./CurrentTime";
 import "./Temperature.css";
 
@@ -8,7 +8,7 @@ export default function Temperature(props) {
       <h1> {props.weather.city} </h1>
       <div className="currentDay">
         {" "}
-        <CurrentTime date={props.weather.date} />
+        <CurrentTime current={props.weather.date} />
       </div>
       <p className="currently">currently</p>
       <span className="current-temperature">
