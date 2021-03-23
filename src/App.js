@@ -19,6 +19,7 @@ export default function App() {
   });
 
   function showWeather(response) {
+    console.log(response);
     setWeather({
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
@@ -26,6 +27,7 @@ export default function App() {
       description: response.data.weather[0].main,
       feelsLike: response.data.main.feels_like,
       humidity: response.data.main.humidity,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -33,7 +35,7 @@ export default function App() {
     <div className="App">
       <Search updateSearchedWeather={showWeather} />
       {weather !== null && <Temperature weather={weather} />}
-      <Forecast color="black" size={40} />
+      <Forecast icon={weather.icon} color="black" size={40} />
       <footer>
         {" "}
         <a
