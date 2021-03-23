@@ -19,7 +19,6 @@ export default function App() {
   });
 
   function showWeather(response) {
-    console.log(response);
     setWeather({
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
