@@ -1,5 +1,6 @@
 import React from "react";
 import CurrentTime from "./CurrentTime";
+import TemperatureUnit from "./TemperatureUnit";
 import "./Temperature.css";
 
 export default function Temperature(props) {
@@ -11,14 +12,8 @@ export default function Temperature(props) {
         <CurrentTime current={props.weather.date} />
       </div>
       <p className="currently">currently</p>
-      <span className="current-temperature">
-        {" "}
-        {Math.round(props.weather.temperature)}{" "}
-      </span>
-      {/* removed className = "active" */}
-      <span className="celcius-link">°C |</span>
+      <TemperatureUnit celsius={Math.round(props.weather.temperature)} />
 
-      <span className="farenheit-link">°F</span>
       <h3 className="text-lowercase"> {props.weather.description} </h3>
       <div className="row">
         <div className="col-sm">

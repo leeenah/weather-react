@@ -3,19 +3,19 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.current-temperature {
+.TemperatureUnit current-temperature {
   font-size: 56px;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   padding-bottom: 20px;
 }
-.celcius-link {
+.TemperatureUnit celcius-link {
   position: relative;
   top: -30px;
   cursor: default;
 }
-.farenheit-link {
+.TemperatureUnit farenheit-link {
   position: relative;
   top: -30px;
   cursor: default;
