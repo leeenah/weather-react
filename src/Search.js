@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./Search.css";
@@ -6,21 +6,39 @@ import "./Search.css";
 export default function Search(props) {
   const [query, setQuery] = useState(null);
 
+  useEffect(() => {
+    search("Auckland");
+  }, []);
+
   function searchWeather(city) {
     // Call API from here and pass it city
     let apiKey = "fc744c97c485c14d19b2746947729882";
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiUrl).then(parseResponse);
+    return axios.get(apiUrl);
   }
 
-  function parseResponse(response) {
-    props.updateSearchedWeather(response);
+  function searchForecast(city) {
+    let apiKey = "fc744c97c485c14d19b2746947729882";
+    let unit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+    return axios.get(apiUrl);
+  }
+
+  async function search(city) {
+    // Call API and wait till we hear back from both
+    const [weatherResponse, forecastResponse] = await Promise.all([
+      searchWeather(city), // This call (maybe takes 2 seconds)
+      searchForecast(city), // This call (maybe takes 10 seconds)
+    ]);
+    // After 10 seconds when we get both responses, we pass responses back to App
+    // Which can use those responses to update state
+    props.updateForecastAndWeather(weatherResponse, forecastResponse);
   }
 
   function submitSearch(event) {
     event.preventDefault();
-    searchWeather(query);
+    search(query);
   }
 
   function updateCity(event) {

@@ -1,4 +1,5 @@
 import React from "react";
+
 import ReactAnimatedWeather from "react-animated-weather";
 
 import "./Forecast.css";
@@ -30,88 +31,9 @@ export default function Forecast(props) {
       <div className="row">
         <div className="col-2">
           <div>08:00</div>
+          {props.icon.icon}
           <ReactAnimatedWeather
-            icon={iconMapping[props.icon]}
-            color={props.color}
-            size={props.size}
-          />
-          <div>
-            <span>
-              {" "}
-              <strong> 10°C </strong>{" "}
-            </span>
-            <span>| </span>
-            <span>5°C </span>
-          </div>
-        </div>
-        <div className="col-2">
-          <div>08:00</div>
-          <ReactAnimatedWeather
-            icon={iconMapping[props.icon]}
-            color={props.color}
-            size={props.size}
-          />
-          <div>
-            <span>
-              {" "}
-              <strong> 10°C </strong>{" "}
-            </span>
-            <span>| </span>
-            <span>5°C </span>
-          </div>
-        </div>
-        <div className="col-2">
-          <div>08:00</div>
-          <ReactAnimatedWeather
-            icon={iconMapping[props.icon]}
-            color={props.color}
-            size={props.size}
-          />
-          <div>
-            <span>
-              {" "}
-              <strong> 10°C </strong>{" "}
-            </span>
-            <span>| </span>
-            <span>5°C </span>
-          </div>
-        </div>
-        <div className="col-2">
-          <div>08:00</div>
-          <ReactAnimatedWeather
-            icon={iconMapping[props.icon]}
-            color={props.color}
-            size={props.size}
-          />
-          <div>
-            <span>
-              {" "}
-              <strong> 10°C </strong>{" "}
-            </span>
-            <span>| </span>
-            <span>5°C </span>
-          </div>
-        </div>
-        <div className="col-2">
-          <div>08:00</div>
-          <ReactAnimatedWeather
-            icon={iconMapping[props.icon]}
-            color={props.color}
-            size={props.size}
-          />
-          <div>
-            <span>
-              {" "}
-              <strong> 10°C </strong>{" "}
-            </span>
-            <span>| </span>
-            <span>5°C </span>
-          </div>
-        </div>
-        <div className="col-2">
-          <div>08:00</div>
-          <ReactAnimatedWeather
-            icon={iconMapping[props.icon]}
+            icon={props.icon} //update this once i have object array
             color={props.color}
             size={props.size}
           />

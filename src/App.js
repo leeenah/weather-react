@@ -8,33 +8,44 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 export default function App() {
-  const [weather, setWeather] = useState({
-    //Static/Fake data
-    city: "Auckland",
-    date: new Date(),
-    temperature: 5,
-    description: "hope it's nice where you are!",
-    feelsLike: 6,
-    humidity: 80,
-  });
+  const [weather, setWeather] = useState(null);
 
-  function showWeather(response) {
+  //add another useState for forecast, setForecast and default state
+  //re-render and update state to setForecast
+  //which will display the time, high/low temperature and the icon
+
+  function showWeatherAndForecast(weatherResponse, forecastResponse) {
     setWeather({
-      city: response.data.name,
-      date: new Date(response.data.dt * 1000),
-      temperature: response.data.main.temp,
-      description: response.data.weather[0].main,
-      feelsLike: response.data.main.feels_like,
-      humidity: response.data.main.humidity,
-      icon: response.data.weather[0].icon,
+      temperature: {
+        city: weatherResponse.data.name,
+        date: new Date(weatherResponse.data.dt * 1000),
+        temperature: weatherResponse.data.main.temp,
+        description: weatherResponse.data.weather[0].main,
+        feelsLike: weatherResponse.data.main.feels_like,
+        humidity: weatherResponse.data.main.humidity,
+        icon: weatherResponse.data.weather[0].icon,
+      },
+      forecast: {
+        time: 7,
+        high: 15,
+        low: 5,
+        icon: "cloudy",
+      },
     });
   }
 
+  // tempratruResponse => 2 seconds ==> redraw
+  // forecastResponse => 10 seconds ==============> redraw
+
   return (
     <div className="App">
-      <Search updateSearchedWeather={showWeather} />
-      {weather !== null && <Temperature weather={weather} />}
-      <Forecast icon={weather.icon} color="black" size={40} />
+      <Search updateForecastAndWeather={showWeatherAndForecast} />
+      {weather !== null && weather.temperature != null && (
+        <Temperature weather={weather.temperature} />
+      )}
+      {weather !== null && weather.forecast !== null && (
+        <Forecast icon={weather.forecast} color="black" size={40} />
+      )}
       <footer>
         {" "}
         <a
