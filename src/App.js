@@ -15,6 +15,7 @@ export default function App() {
   //which will display the time, high/low temperature and the icon
 
   function showWeatherAndForecast(weatherResponse, forecastResponse) {
+    console.log(forecastResponse);
     setWeather({
       temperature: {
         city: weatherResponse.data.name,
@@ -25,11 +26,11 @@ export default function App() {
         humidity: weatherResponse.data.main.humidity,
         icon: weatherResponse.data.weather[0].icon,
       },
+
       forecast: {
-        time: 7,
-        high: 15,
-        low: 5,
-        icon: "cloudy",
+        list: forecastResponse.data.list,
+        color: "black",
+        size: 40,
       },
     });
   }
@@ -44,7 +45,33 @@ export default function App() {
         <Temperature weather={weather.temperature} />
       )}
       {weather !== null && weather.forecast !== null && (
-        <Forecast icon={weather.forecast} color="black" size={40} />
+        // <Forecast forecast={weather.forecast} />
+
+        <div>
+          <div className="Forecast">
+            <div className="row">
+              <div className="col-2">
+                {weather.forecast.list
+                  .slice(0, 5)
+                  .map(function (forecast, index) {
+                    console.log(forecast);
+                    return (
+                      <Forecast
+                        forecast={{
+                          time: new Date(forecast.dt * 1000),
+                          high: Math.round(forecast.main.temp_max),
+                          low: Math.round(forecast.main.temp_min),
+                          icon: forecast.weather[0].icon,
+                          color: "black",
+                          size: 40,
+                        }}
+                      />
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+        </div>
       )}
       <footer>
         {" "}

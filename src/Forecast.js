@@ -30,20 +30,19 @@ export default function Forecast(props) {
     <div className="Forecast">
       <div className="row">
         <div className="col-2">
-          <div>08:00</div>
-          {props.icon.icon}
+          <div>{props.forecast.time.getHours()}:00</div>
           <ReactAnimatedWeather
-            icon={props.icon} //update this once i have object array
-            color={props.color}
-            size={props.size}
+            icon={iconMapping[props.forecast.icon]}
+            color={props.forecast.color}
+            size={props.forecast.size}
           />
           <div>
             <span>
               {" "}
-              <strong> 10°C </strong>{" "}
+              <strong> {props.forecast.high}°C </strong>{" "}
             </span>
             <span>| </span>
-            <span>5°C </span>
+            <span>{props.forecast.low}°C </span>
           </div>
         </div>
       </div>
