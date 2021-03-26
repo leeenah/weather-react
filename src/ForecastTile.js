@@ -39,7 +39,7 @@ export default function ForecastTile(props) {
           {" "}
           <strong> {props.forecast.high}°C </strong>{" "}
         </span>
-        <span>| </span>
+        <span> | </span>
         <span>{props.forecast.low}°C </span>
       </div>
     </div>

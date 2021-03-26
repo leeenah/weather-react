@@ -11,7 +11,6 @@ export default function App() {
   const [weather, setWeather] = useState(null);
 
   function showWeatherAndForecast(weatherResponse, forecastResponse) {
-    console.log(forecastResponse);
     setWeather({
       temperature: {
         city: weatherResponse.data.name,
