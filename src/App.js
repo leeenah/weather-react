@@ -35,9 +35,6 @@ export default function App() {
     });
   }
 
-  // tempratruResponse => 2 seconds ==> redraw
-  // forecastResponse => 10 seconds ==============> redraw
-
   return (
     <div className="App">
       <Search updateForecastAndWeather={showWeatherAndForecast} />
@@ -45,33 +42,7 @@ export default function App() {
         <Temperature weather={weather.temperature} />
       )}
       {weather !== null && weather.forecast !== null && (
-        // <Forecast forecast={weather.forecast} />
-
-        <div>
-          <div className="Forecast">
-            <div className="row">
-              <div className="col-2">
-                {weather.forecast.list
-                  .slice(0, 5)
-                  .map(function (forecast, index) {
-                    console.log(forecast);
-                    return (
-                      <Forecast
-                        forecast={{
-                          time: new Date(forecast.dt * 1000),
-                          high: Math.round(forecast.main.temp_max),
-                          low: Math.round(forecast.main.temp_min),
-                          icon: forecast.weather[0].icon,
-                          color: "black",
-                          size: 40,
-                        }}
-                      />
-                    );
-                  })}
-              </div>
-            </div>
-          </div>
-        </div>
+        <Forecast list={weather.forecast.list} />
       )}
       <footer>
         {" "}

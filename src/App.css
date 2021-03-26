@@ -7,20 +7,6 @@
   max-width: 550px;
   background-color: white;
 }
-.App Forecast {
-  color: #bcb7b7;
-  font-size: 12px;
-  font-family: "Montserrat", sans-serif;
-  display: inline;
-  background-color: blue;
-}
-
-.App .col-2 {
-  text-align: center;
-  font-size: 12px;
-  padding: 0px;
-  background-color: blueviolet;
-}
 
 h3 {
   font-size: 20px;
