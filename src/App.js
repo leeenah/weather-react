@@ -10,10 +10,6 @@ import "./App.css";
 export default function App() {
   const [weather, setWeather] = useState(null);
 
-  //add another useState for forecast, setForecast and default state
-  //re-render and update state to setForecast
-  //which will display the time, high/low temperature and the icon
-
   function showWeatherAndForecast(weatherResponse, forecastResponse) {
     console.log(forecastResponse);
     setWeather({

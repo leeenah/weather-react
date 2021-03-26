@@ -6,9 +6,7 @@ import "./Forecast.css";
 export default function Forecast(props) {
   return (
     <div className="Forecast">
-      {/* <div className="container"> */}
       <div className="row">
-        {/* <div className="Forecast row"> */}
         {props.list.slice(0, 6).map(function (forecast, index) {
           return (
             <ForecastTile
@@ -25,6 +23,5 @@ export default function Forecast(props) {
         })}
       </div>
     </div>
-    // </div>
   );
 }
