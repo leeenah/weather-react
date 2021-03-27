@@ -17,19 +17,20 @@
 
 .goButton {
   color: white;
-  border-color: black;
+  border: none;
   background-color: black;
-  border-left-color: black;
-  border-bottom-color: black;
-  border-bottom-style: solid;
   border-radius: 4px;
-  border-width: 2px;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
-  padding: 4px;
+  padding: 6px;
   margin: 1px;
+}
+
+.goButton:disabled {
+  color: white;
+  background-color: #bcb7b7;
 }
 .fa-location-arrow {
   border-width: 1px;
@@ -40,4 +41,9 @@
   position: relative;
   padding: 4px 6px 8px;
   margin: 1px;
+}
+
+.fa-location-arrow:disabled {
+  color: #bcb7b7;
+  border-color: #bcb7b7;
 }

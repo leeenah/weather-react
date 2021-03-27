@@ -81,11 +81,14 @@ export default function Search(props) {
           autoComplete="off"
           onChange={updateCity}
         />
-        <input className="goButton" type="submit" value="Go" />
+        <button className="goButton" type="submit" disabled={isSearching}>
+          Go
+        </button>
 
         <button
           className="fas fa-location-arrow"
           onClick={locationSearch}
+          disabled={isSearching}
         ></button>
       </form>
       <p style={{ fontSize: 20 }}>
