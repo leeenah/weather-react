@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
 
 import "./Search.css";
 
 export default function Search(props) {
   const [query, setQuery] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     search("Auckland");
@@ -34,15 +36,18 @@ export default function Search(props) {
     // After 10 seconds when we get both responses, we pass responses back to App
     // Which can use those responses to update state
     props.updateForecastAndWeather(weatherResponse, forecastResponse);
+    setIsSearching(false);
   }
 
   function submitSearch(event) {
     event.preventDefault();
+    setIsSearching(true);
     search(query);
   }
 
   function locationSearch(event) {
     event.preventDefault();
+    setIsSearching(true);
     navigator.geolocation.getCurrentPosition(getLocation);
   }
 
@@ -77,11 +82,20 @@ export default function Search(props) {
           onChange={updateCity}
         />
         <input className="goButton" type="submit" value="Go" />
+
         <button
           className="fas fa-location-arrow"
           onClick={locationSearch}
         ></button>
       </form>
+      <p style={{ fontSize: 20 }}>
+        {isSearching === true && (
+          <span>
+            <Spinner animation="border" size="sm" />
+          </span>
+        )}
+        {isSearching === false && <span>{"\u00A0"}</span>}
+      </p>
     </div>
   );
 }
