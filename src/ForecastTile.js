@@ -29,6 +29,7 @@ export default function ForecastTile(props) {
   return (
     <div className="col-2 ">
       <div>{props.forecast.time.getHours()}:00</div>
+
       <ReactAnimatedWeather
         icon={iconMapping[props.forecast.icon]}
         color={props.forecast.color}
@@ -37,7 +38,10 @@ export default function ForecastTile(props) {
       <div>
         <span>
           {" "}
-          <strong> {props.forecast.high}°C </strong>{" "}
+          <strong>
+            {" "}
+            <b>{props.forecast.high}°C </b>
+          </strong>{" "}
         </span>
         <span> | </span>
         <span>{props.forecast.low}°C </span>
