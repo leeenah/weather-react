@@ -5,11 +5,10 @@ import Spinner from "react-bootstrap/Spinner";
 import "./Search.css";
 
 export default function Search(props) {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    // search("Auckland");
     searchLocation();
   }, []);
 
@@ -28,6 +27,16 @@ export default function Search(props) {
     return axios.get(apiUrl);
   }
 
+  function submitSearch(event) {
+    event.preventDefault();
+    search(query);
+  }
+
+  function submitLocationSearch(event) {
+    event.preventDefault();
+    searchLocation();
+  }
+
   async function search(city) {
     setIsSearching(true);
     // Call API and wait till we hear back from both
@@ -39,18 +48,6 @@ export default function Search(props) {
     // Which can use those responses to update state
     props.updateForecastAndWeather(weatherResponse, forecastResponse);
     setIsSearching(false);
-  }
-
-  function submitSearch(event) {
-    event.preventDefault();
-
-    search(query);
-  }
-
-  function submitLocationSearch(event) {
-    event.preventDefault();
-
-    searchLocation();
   }
 
   function searchLocation() {
@@ -89,7 +86,11 @@ export default function Search(props) {
           autoComplete="off"
           onChange={updateCity}
         />
-        <button className="goButton" type="submit" disabled={isSearching}>
+        <button
+          className="goButton"
+          type="submit"
+          disabled={isSearching || query.length === 0}
+        >
           Go
         </button>
 
