@@ -16,14 +16,14 @@ export default function ForecastTile(props) {
     "04n": "CLOUDY",
     "09d": "RAIN",
     "09n": "RAIN",
-    "010d": "SLEET",
-    "010n": "SLEET",
-    "011d": "WIND",
-    "011n": "WIND",
-    "013d": "SNOW",
-    "013n": "SNOW",
-    "050d": "FOG",
-    "050n": "FOG",
+    "10d": "SLEET",
+    "10n": "SLEET",
+    "11d": "WIND",
+    "11n": "WIND",
+    "13d": "SNOW",
+    "13n": "SNOW",
+    "50d": "FOG",
+    "50n": "FOG",
   };
 
   return (
