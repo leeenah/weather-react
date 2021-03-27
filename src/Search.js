@@ -9,7 +9,8 @@ export default function Search(props) {
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    search("Auckland");
+    // search("Auckland");
+    searchLocation();
   }, []);
 
   function searchWeather(city) {
@@ -28,6 +29,7 @@ export default function Search(props) {
   }
 
   async function search(city) {
+    setIsSearching(true);
     // Call API and wait till we hear back from both
     const [weatherResponse, forecastResponse] = await Promise.all([
       searchWeather(city), // This call (maybe takes 2 seconds)
@@ -41,12 +43,17 @@ export default function Search(props) {
 
   function submitSearch(event) {
     event.preventDefault();
-    setIsSearching(true);
+
     search(query);
   }
 
-  function locationSearch(event) {
+  function submitLocationSearch(event) {
     event.preventDefault();
+
+    searchLocation();
+  }
+
+  function searchLocation() {
     setIsSearching(true);
     navigator.geolocation.getCurrentPosition(getLocation);
   }
@@ -63,6 +70,7 @@ export default function Search(props) {
   function showLocation(response) {
     let city = response.data.city.name;
     search(city);
+    setIsSearching(false);
   }
 
   function updateCity(event) {
@@ -87,7 +95,7 @@ export default function Search(props) {
 
         <button
           className="fas fa-location-arrow"
-          onClick={locationSearch}
+          onClick={submitLocationSearch}
           disabled={isSearching}
         ></button>
       </form>
