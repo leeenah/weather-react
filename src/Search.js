@@ -41,6 +41,25 @@ export default function Search(props) {
     search(query);
   }
 
+  function locationSearch(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getLocation);
+  }
+
+  function getLocation(position) {
+    let apiKey = "fc744c97c485c14d19b2746947729882";
+    let unit = "metric";
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(showLocation);
+  }
+
+  function showLocation(response) {
+    let city = response.data.city.name;
+    search(city);
+  }
+
   function updateCity(event) {
     event.preventDefault();
     setQuery(event.target.value);
@@ -58,7 +77,10 @@ export default function Search(props) {
           onChange={updateCity}
         />
         <input className="goButton" type="submit" value="Go" />
-        <button className="fas fa-location-arrow"></button>
+        <button
+          className="fas fa-location-arrow"
+          onClick={locationSearch}
+        ></button>
       </form>
     </div>
   );
