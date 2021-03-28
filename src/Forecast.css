@@ -16,3 +16,6 @@
 img {
   max-width: 80%;
 }
+canvas {
+  padding-top: 4px;
+}
