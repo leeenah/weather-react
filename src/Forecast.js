@@ -10,6 +10,7 @@ export default function Forecast(props) {
         {props.list.slice(0, 6).map(function (forecast, index) {
           return (
             <ForecastTile
+              key={index}
               forecast={{
                 time: new Date(forecast.dt * 1000),
                 high: Math.round(forecast.main.temp_max),

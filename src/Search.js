@@ -10,10 +10,10 @@ export default function Search(props) {
 
   useEffect(() => {
     searchLocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function searchWeather(city) {
-    // Call API from here and pass it city
     let apiKey = "fc744c97c485c14d19b2746947729882";
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
@@ -100,14 +100,14 @@ export default function Search(props) {
           disabled={isSearching}
         ></button>
       </form>
-      <p style={{ fontSize: 20 }}>
+      <div style={{ fontSize: 20 }}>
         {isSearching === true && (
           <span>
             <Spinner animation="border" size="sm" />
           </span>
         )}
         {isSearching === false && <span>{"\u00A0"}</span>}
-      </p>
+      </div>
     </div>
   );
 }
