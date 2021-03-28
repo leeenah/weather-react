@@ -6,8 +6,6 @@
 .TemperatureUnit current-temperature {
   font-size: 56px;
   font-weight: bold;
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
   padding-bottom: 20px;
 }
 .TemperatureUnit temp-link {
@@ -21,31 +19,25 @@
 }
 
 .col-sm {
-  text-align: center;
   font-size: 10px;
-  font-family: "Montserrat", sans-serif;
   font-weight: none;
 }
 
 .currently {
   font-size: 10px;
-  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   color: #bcb7b7;
   font-weight: 700;
-  text-align: center;
 }
 .currentDay {
   margin-bottom: 0;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  text-align: center;
 }
 
 h1 {
   font-family: "DM Serif Display", serif;
-  text-align: center;
 }
 
 .TemperatureUnit span {

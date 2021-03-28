@@ -51,7 +51,9 @@ export default function App() {
         </a>
         <span>
           {" "}
-          <strong>by Lena Zhang</strong>
+          <strong>
+            <b>by Lena Zhang</b>
+          </strong>
         </span>{" "}
       </footer>{" "}
     </div>
