@@ -4,10 +4,12 @@ import "./Temperature.css";
 
 export default function TemperatureUnit(props) {
   const [unit, setUnit] = useState("celsius");
+  const [isActive, setIsActive] = useState(true);
 
   function showFarenheit(event) {
     event.preventDefault();
     setUnit("farenheit");
+    setIsActive(false);
   }
 
   function showCelsius(event) {
@@ -24,10 +26,11 @@ export default function TemperatureUnit(props) {
       <div className="TemperatureUnit">
         {" "}
         <current-temperature>{props.celsius}</current-temperature>
-        {/* removed className = "active" */}
-        <celsius-link>°C |</celsius-link>
+        <celsius-link>
+          <celsius-link-active>°C </celsius-link-active>
+        </celsius-link>
+        <span> | </span>
         <farenheit-link>
-          {" "}
           <a href="/" onClick={showFarenheit}>
             °F{" "}
           </a>
@@ -44,9 +47,11 @@ export default function TemperatureUnit(props) {
           <a href="/" onClick={showCelsius}>
             °C{" "}
           </a>
-          |
         </celsius-link>
-        <farenheit-link>°F </farenheit-link>
+        <span> | </span>
+        <farenheit-link>
+          <farenheit-link-active>°F </farenheit-link-active>
+        </farenheit-link>
       </div>
     );
   }

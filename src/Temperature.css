@@ -16,10 +16,18 @@
   cursor: default;
 }
 
+.TemperatureUnit celsius-link-active {
+  font-weight: bold;
+}
+
 .TemperatureUnit farenheit-link {
   position: relative;
   top: -30px;
   cursor: default;
+}
+
+.TemperatureUnit farenheit-link-active {
+  font-weight: bold;
 }
 
 .col-sm {
@@ -28,16 +36,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: none;
 }
-.active {
-  position: relative;
-  font-weight: bold;
-  top: -30px;
-}
 
-h1 {
-  font-family: "DM Serif Display", serif;
-  text-align: center;
-}
 .currently {
   font-size: 10px;
   font-family: "Montserrat", sans-serif;
@@ -52,4 +51,24 @@ h1 {
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
+}
+
+h1 {
+  font-family: "DM Serif Display", serif;
+  text-align: center;
+}
+
+.TemperatureUnit span {
+  position: relative;
+  top: -30px;
+}
+
+.TemperatureUnit a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.TemperatureUnit a:active {
+  text-decoration: none;
+  color: red;
 }
