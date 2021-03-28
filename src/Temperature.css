@@ -10,23 +10,13 @@
   text-align: center;
   padding-bottom: 20px;
 }
-.TemperatureUnit celsius-link {
+.TemperatureUnit temp-link {
   position: relative;
   top: -30px;
   cursor: default;
 }
 
-.TemperatureUnit celsius-link-active {
-  font-weight: bold;
-}
-
-.TemperatureUnit farenheit-link {
-  position: relative;
-  top: -30px;
-  cursor: default;
-}
-
-.TemperatureUnit farenheit-link-active {
+.TemperatureUnit temp-link-active {
   font-weight: bold;
 }
 
@@ -65,10 +55,10 @@ h1 {
 
 .TemperatureUnit a:hover {
   text-decoration: none;
-  color: red;
+  color: #bcb7b7;
 }
 
 .TemperatureUnit a:active {
   text-decoration: none;
-  color: red;
+  color: #bcb7b7;
 }
