@@ -40,11 +40,21 @@ export default function ForecastTile(props) {
           {" "}
           <strong>
             {" "}
-            <b>{props.forecast.high}°C </b>
+            <b>
+              {props.unit === "celsius"
+                ? props.forecast.high
+                : Math.round((props.forecast.high * 9) / 5 + 32)}
+              °{props.unit === "celsius" ? "C" : "F"}
+            </b>
           </strong>{" "}
         </span>
         <span> | </span>
-        <span>{props.forecast.low}°C </span>
+        <span>
+          {props.unit === "celsius"
+            ? props.forecast.low
+            : Math.round((props.forecast.low * 9) / 5 + 32)}
+          °{props.unit === "celsius" ? "C" : "F"}{" "}
+        </span>
       </div>
     </div>
   );

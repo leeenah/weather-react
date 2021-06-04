@@ -12,7 +12,10 @@ export default function Temperature(props) {
         <CurrentTime current={props.weather.date} />
       </div>
       <p className="currently">currently</p>
-      <TemperatureUnit celsius={Math.round(props.weather.temperature)} />
+      <TemperatureUnit
+        celsius={Math.round(props.weather.temperature)}
+        toggleUnit={props.toggleUnit}
+      />
 
       <h3 className="text-lowercase"> {props.weather.description} </h3>
       <div className="row">

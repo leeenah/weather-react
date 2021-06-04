@@ -19,6 +19,7 @@ export default function Forecast(props) {
                 color: "black",
                 size: 40,
               }}
+              unit={props.unit}
             />
           );
         })}

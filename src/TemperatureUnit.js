@@ -9,11 +9,13 @@ export default function TemperatureUnit(props) {
   function showFarenheit(event) {
     event.preventDefault();
     setUnit("farenheit");
+    props.toggleUnit("farenheit");
   }
 
   function showCelsius(event) {
     event.preventDefault();
     setUnit("celsius");
+    props.toggleUnit("celsius");
   }
 
   function farenheit(celsius) {

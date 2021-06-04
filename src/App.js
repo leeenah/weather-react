@@ -9,6 +9,7 @@ import "./App.css";
 
 export default function App() {
   const [weather, setWeather] = useState(null);
+  const [unit, setUnit] = useState("celsius");
 
   function showWeatherAndForecast(weatherResponse, forecastResponse) {
     setWeather({
@@ -30,14 +31,18 @@ export default function App() {
     });
   }
 
+  function toggleUnit(unit) {
+    setUnit(unit);
+  }
+
   return (
     <div className="App">
       <Search updateForecastAndWeather={showWeatherAndForecast} />
       {weather !== null && weather.temperature != null && (
-        <Temperature weather={weather.temperature} />
+        <Temperature weather={weather.temperature} toggleUnit={toggleUnit} />
       )}
       {weather !== null && weather.forecast !== null && (
-        <Forecast list={weather.forecast.list} />
+        <Forecast list={weather.forecast.list} unit={unit} />
       )}
       <footer>
         {" "}
